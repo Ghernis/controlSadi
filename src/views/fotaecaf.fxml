@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="pnFotae" prefHeight="900.0" prefWidth="1400.0" style="-fx-background-color: #848c94;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.FotaecafController">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="155.0" prefWidth="1400.0" style="-fx-background-color: #641945;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_RIGHT" layoutX="216.0" layoutY="38.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/find.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <JFXTextField fx:id="txtUsuario" focusColor="#408ea9" labelFloat="true" prefHeight="25.0" prefWidth="273.0" promptText="Buscar por Nombre de Obra/Numero de Obra" stylesheets="@css/ostrich-sans.css" unFocusColor="#d0c9c9" />
+                        <JFXComboBox fx:id="desplegableObras" focusColor="#408ea9" labelFloat="true" onAction="#handleLista" prefHeight="25.0" prefWidth="960.0" style="-jfx-focus-color: white;" stylesheets="@css/stile.css" unFocusColor="#d0c9c9" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox fx:id="btnTXT" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="300.0" stylesheets="@css/stilosPaneles.css" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="txtExport" stylesheets="@css/stilosPaneles.css" text="Exportar a TXT" textFill="#d0c9c9">
+                                 <HBox.margin>
+                                    <Insets right="17.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imagenes/txt.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="btnExcel" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" stylesheets="@css/stilosPaneles.css" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="excelExport" stylesheets="@css/stilosPaneles.css" text="Exportar a Excel" textFill="#d0c9c9">
+                                 <HBox.margin>
+                                    <Insets right="9.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imagenes/excel.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="btnPDF" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" stylesheets="@css/stilosPaneles.css" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="pdfExport" stylesheets="@css/stilosPaneles.css" text="Exportar a PDF" textFill="#d0c9c9">
+                                 <HBox.margin>
+                                    <Insets right="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imagenes/pdf.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/work.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label fx:id="titFotae" stylesheets="@css/ostrich-sans.css" text="FOTAE/CAF" textFill="#d0c9c9" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets right="25.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <JFXTabPane stylesheets="@css/stileTabs.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="155.0">
+         <tabs>
+            <Tab text="FOTAE">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@css/stileFotae.css">
+                     <children>
+                        <VBox fx:id="vboxFotae" prefHeight="500.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
+                                 <children>
+                                    <Label fx:id="txtTitulo" text="Titulo ObraTitulo ObraTitulo ObraTitulo ObraTitulo ObraTitulo Obra" HBox.hgrow="ALWAYS" />
+                                    <AnchorPane prefHeight="24.0" prefWidth="809.0" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <GridPane HBox.hgrow="ALWAYS">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints fx:id="gridPane" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/stilosPaneles.css">
+                                             <children>
+                                                <Label contentDisplay="CENTER" layoutX="79.0" layoutY="6.0" text="Region" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="2">
+                                             <children>
+                                                <Label contentDisplay="CENTER" layoutX="30.0" layoutY="6.0" text="Comitente" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="1">
+                                             <children>
+                                                <Label fx:id="lbRegion" contentDisplay="CENTER" layoutX="36.0" layoutY="6.0" text="Label" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="3">
+                                             <children>
+                                                <Label fx:id="lbComitente" contentDisplay="CENTER" layoutX="21.0" layoutY="6.0" text="Label" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #83466a;" stylesheets="@css/stilosPaneles.css" GridPane.rowIndex="1">
+                                             <children>
+                                                <Label contentDisplay="CENTER" layoutX="79.0" layoutY="6.0" text="Provincia" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #83466a;" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <children>
+                                                <Label fx:id="lbProvincia" contentDisplay="CENTER" layoutX="93.0" layoutY="6.0" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #83466a;" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <children>
+                                                <Label contentDisplay="CENTER" layoutX="78.0" layoutY="6.0" text="Adjudicatario" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #83466a;" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                             <children>
+                                                <Label fx:id="lbAdjudicatario" contentDisplay="CENTER" layoutX="92.0" layoutY="6.0" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/stilosPaneles.css" GridPane.rowIndex="2">
+                                             <children>
+                                                <Label contentDisplay="CENTER" layoutX="79.0" text="Plazo Contractual de la Obra" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <children>
+                                                <Label fx:id="lbPlazo" contentDisplay="CENTER" layoutX="93.0" layoutY="6.0" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                             <children>
+                                                <Label contentDisplay="CENTER" layoutX="78.0" layoutY="6.0" text="Fecha de Firma de Contrato" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                             <children>
+                                                <Label fx:id="lbFechaFirma" contentDisplay="CENTER" layoutX="85.0" layoutY="6.0" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #83466a;" stylesheets="@css/stilosPaneles.css" GridPane.rowIndex="3">
+                                             <children>
+                                                <Label contentDisplay="CENTER" layoutX="79.0" text="Acta de Inicio de Obra" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #83466a;" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <children>
+                                                <Label fx:id="lbActa" contentDisplay="CENTER" layoutX="79.0" layoutY="6.0" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #83466a;" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                             <children>
+                                                <Label contentDisplay="CENTER" layoutX="70.0" layoutY="6.0" text="Habilitacion Comercial" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #83466a;" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                             <children>
+                                                <Label fx:id="lbHabilitacion" contentDisplay="CENTER" layoutX="92.0" layoutY="6.0" stylesheets="@css/stilosPaneles.css" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/stilosPaneles.css" GridPane.rowIndex="4">
+                                             <children>
+                                                <Label contentDisplay="CENTER" layoutX="72.0" layoutY="6.0" stylesheets="@css/stileTabs.css" text="Fecha de Inicio Contractual" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #83466a;" stylesheets="@css/stilosPaneles.css" GridPane.rowIndex="5">
+                                             <children>
+                                                <Label contentDisplay="CENTER" layoutX="79.0" layoutY="6.0" stylesheets="@css/stileTabs.css" text="Asignacion 2017" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/stilosPaneles.css" GridPane.rowIndex="6">
+                                             <children>
+                                                <Label contentDisplay="CENTER" layoutX="79.0" layoutY="6.0" stylesheets="@css/stileTabs.css" text="Asignacion 2018" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #83466a;" stylesheets="@css/stilosPaneles.css" GridPane.rowIndex="7">
+                                             <children>
+                                                <Label contentDisplay="CENTER" layoutX="93.0" layoutY="6.0" stylesheets="@css/stileTabs.css" text="Asignacion 2019" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <children>
+                                                <Label fx:id="lbFechaInicio" contentDisplay="CENTER" layoutX="93.0" layoutY="7.0" stylesheets="@css/stileTabs.css" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #83466a;" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                             <children>
+                                                <Label fx:id="lbAsign17" contentDisplay="CENTER" layoutX="93.0" layoutY="7.0" stylesheets="@css/stileTabs.css" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                             <children>
+                                                <Label fx:id="lbAsign18" contentDisplay="CENTER" layoutX="93.0" layoutY="6.0" stylesheets="@css/stileTabs.css" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #83466a;" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                             <children>
+                                                <Label fx:id="lbAsign19" contentDisplay="CENTER" layoutX="79.0" layoutY="6.0" stylesheets="@css/stileTabs.css" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                             <children>
+                                                <Label contentDisplay="CENTER" layoutX="54.0" layoutY="6.0" stylesheets="@css/stileTabs.css" text="Fecha Fin de Obra Contractual" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #83466a;" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                             <children>
+                                                <Label contentDisplay="CENTER" layoutX="78.0" layoutY="7.0" stylesheets="@css/stileTabs.css" text="Monto Total Previsto[$]" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                             <children>
+                                                <Label contentDisplay="CENTER" layoutX="92.0" layoutY="6.0" stylesheets="@css/stileTabs.css" text="Monto Total Previsto[USD]" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #83466a;" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                             <children>
+                                                <Label contentDisplay="CENTER" layoutX="72.0" layoutY="7.0" stylesheets="@css/stileTabs.css" text="Monto Total Estimado" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                             <children>
+                                                <Label fx:id="lbMontoD" contentDisplay="CENTER" layoutX="85.0" layoutY="7.0" stylesheets="@css/stileTabs.css" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #83466a;" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                                             <children>
+                                                <Label fx:id="lbMontoT" contentDisplay="CENTER" layoutX="78.0" layoutY="6.0" stylesheets="@css/stileTabs.css" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                             <children>
+                                                <Label fx:id="lbFechaFin" contentDisplay="CENTER" layoutX="78.0" layoutY="7.0" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #83466a;" stylesheets="@css/stilosPaneles.css" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                             <children>
+                                                <Label fx:id="lbMontoP" contentDisplay="CENTER" layoutX="78.0" layoutY="7.0" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </GridPane>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" styleClass="break-word" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label fx:id="lbDescripcion" stylesheets="@css/stilosPaneles.css" text="Descripcion de la Obra" VBox.vgrow="ALWAYS">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font></Label>
+                                          <Label fx:id="txtDescripcion" styleClass="text" text="Informe n10. Restauracion del banco de transformadores t2ez- 500/&amp;220/33 800 parson peebles en et ezeiza. Abb esta reparando el transformadorInforme n10. Restauracion del banco de transformadores t2ez- 500/&amp;220/33 800 parson peebles en et ezeiza. Abb esta reparando el transformadorInforme n10. Restauracion del banco de transformadores t2ez- 500/&amp;220/33 800 parson peebles en et ezeiza. Abb esta reparando el transformadorInforme n10. Restauracion del banco de transformadores t2ez- 500/&amp;220/33 800 parson peebles en et ezeiza. Abb esta reparando el transformador" textFill="WHITE" wrapText="true" VBox.vgrow="ALWAYS">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="300.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <JFXTreeTableView prefWidth="500.0" HBox.hgrow="ALWAYS" />
+                                    <JFXTabPane HBox.hgrow="ALWAYS">
+                                       <tabs>
+                                          <Tab text="Avance de Obra[%]">
+                                            <content>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <LineChart AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                        <xAxis>
+                                                          <CategoryAxis side="BOTTOM" />
+                                                        </xAxis>
+                                                        <yAxis>
+                                                          <NumberAxis side="LEFT" />
+                                                        </yAxis>
+                                                      </LineChart>
+                                                   </children>
+                                                </AnchorPane>
+                                            </content>
+                                          </Tab>
+                                          <Tab text="Presupuesto Anual Ejecutado[%]">
+                                            <content>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <LineChart AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                        <xAxis>
+                                                          <CategoryAxis side="BOTTOM" />
+                                                        </xAxis>
+                                                        <yAxis>
+                                                          <NumberAxis side="LEFT" />
+                                                        </yAxis>
+                                                      </LineChart>
+                                                   </children>
+                                                </AnchorPane>
+                                            </content>
+                                          </Tab>
+                                       </tabs>
+                                    </JFXTabPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox alignment="CENTER_RIGHT" layoutX="14.0" layoutY="34.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label fx:id="lbComentarios" stylesheets="@css/stilosPaneles.css" text="Comentarios:" VBox.vgrow="ALWAYS">
+                                                   <VBox.margin>
+                                                      <Insets right="5.0" />
+                                                   </VBox.margin></Label>
+                                                <JFXTextArea fx:id="areaComentarios" editable="false" focusColor="#408ea9" promptText="Agregar comentarios para esta obra" stylesheets="@css/stilosPaneles.css" wrapText="true" VBox.vgrow="ALWAYS" />
+                                                <JFXButton fx:id="btnAgregar" disable="true" onAction="#handleAgregar" stylesheets="@css/stilosPaneles.css" text="Agregar Comentario" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label text="Medidas Correctivas:" />
+                                          <JFXListView />
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label text="Comentarios" />
+                                          <JFXListView fx:id="listComentarios" style="-fx-background-color: #848c94;" stylesheets="@css/stile.css" VBox.vgrow="ALWAYS" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="CAF">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</AnchorPane>

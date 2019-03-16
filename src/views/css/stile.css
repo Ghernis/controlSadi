@@ -1,0 +1,30 @@
+.sidebar-btn{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    
+}
+.sidebar-btn:hover{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-border-color: rgb(22,169,250);
+    -fx-text-fill: rgb(22,169,250);
+    -fx-border-width: 0px 0px 0px 3px;
+}
+
+#listComentarios .list-cell:even{
+    -fx-text-fill:black;
+    -fx-background-color: #848c94;
+}
+
+#listComentarios .list-cell:odd{
+    -fx-text-fill:black;
+    -fx-background-color: #83466a;
+}
+.jfx-combo-box .text {
+	
+	/*-fx-text-fill: white;*/
+        -fx-fill:black;
+}
+.jfx-combo-box {
+     -fx-background-color: #83466a;
+}
