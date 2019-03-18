@@ -9,257 +9,265 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="230.0" style="-fx-background-color: TRANSPARENT;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.SidebarController">
+<AnchorPane id="AnchorPane" prefWidth="230.0" style="-fx-background-color: TRANSPARENT;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.SidebarController">
    <children>
-      <AnchorPane layoutY="14.0" prefHeight="155.0" prefWidth="300.0" style="-fx-background-color: #530031;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane minHeight="155.0" prefHeight="155.0" style="-fx-background-color: #530031;">
                <children>
-                  <ImageView fitHeight="80.0" fitWidth="80.0" opacity="0.88" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imagenes/userHer.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="30.0" right="5.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+                  <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="155.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label fx:id="nombre" opacity="0.88" stylesheets="@css/ostrich-sans.css" text="Hernan" textFill="#d0c9c9">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="apellido" opacity="0.88" text="Gomez" textFill="#d0c9c9" />
+                        <ImageView fitHeight="80.0" fitWidth="80.0" opacity="0.88" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imagenes/userHer.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="30.0" right="5.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="nombre" opacity="0.88" stylesheets="@css/ostrich-sans.css" text="Hernan" textFill="#d0c9c9">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="apellido" opacity="0.88" text="Gomez" textFill="#d0c9c9" />
+                              <Label fx:id="lbPuesto" stylesheets="@css/ostrich-sans.css" text="Developer" textFill="#d0c9c9" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </VBox>
                      </children>
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </AnchorPane>
+            <AnchorPane style="-fx-background-color: #32404d;">
+               <children>
+                  <VBox layoutY="58.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox fx:id="btnTablero" alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
+                           <children>
+                              <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imagenes/panelControl.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="tablero" stylesheets="@css/ostrich-sans.css" text="Tablero de Control" textFill="#d0c9c9">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Label fx:id="main" stylesheets="@css/ostrich-sans.css" text="Main" textFill="#d0c9c9">
+                           <VBox.margin>
+                              <Insets left="10.0" top="20.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </Label>
+                        <HBox fx:id="btnSadi" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
+                           <children>
+                              <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imagenes/sadi.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="sadi" stylesheets="@css/ostrich-sans.css" text="SADI" textFill="#d0c9c9">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="btnTransporte" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
+                           <children>
+                              <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imagenes/transmis.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="transporte" stylesheets="@css/ostrich-sans.css" text="Transporte" textFill="#d0c9c9">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <opaqueInsets>
+                              <Insets left="30.0" />
+                           </opaqueInsets>
+                        </HBox>
+                        <HBox fx:id="btnGeneracion" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
+                           <children>
+                              <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imagenes/gene.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="52.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="generacion" stylesheets="@css/ostrich-sans.css" text="Generacion" textFill="#d0c9c9">
+                                 <HBox.margin>
+                                    <Insets left="13.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <opaqueInsets>
+                              <Insets left="30.0" />
+                           </opaqueInsets>
+                        </HBox>
+                        <HBox fx:id="btnDistribucion" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
+                           <children>
+                              <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imagenes/trafo.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="distribucion" stylesheets="@css/ostrich-sans.css" text="Distribucion" textFill="#d0c9c9">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <opaqueInsets>
+                              <Insets left="30.0" />
+                           </opaqueInsets>
+                        </HBox>
+                        <HBox fx:id="btnAgentes" alignment="CENTER_LEFT" layoutX="10.0" layoutY="80.0" maxHeight="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
+                           <children>
+                              <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imagenes/agentes.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="agentes" stylesheets="@css/ostrich-sans.css" text="Agentes" textFill="#d0c9c9">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <opaqueInsets>
+                              <Insets left="30.0" />
+                           </opaqueInsets>
+                        </HBox>
+                        <HBox fx:id="btnHistoricos" alignment="CENTER_LEFT" layoutX="10.0" layoutY="280.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
+                           <children>
+                              <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imagenes/chart.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="historicos" stylesheets="@css/ostrich-sans.css" text="Historicos" textFill="#d0c9c9">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="btnFotaecaf" alignment="CENTER_LEFT" layoutX="10.0" layoutY="330.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
+                           <children>
+                              <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imagenes/work.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="fotae" stylesheets="@css/ostrich-sans.css" text="FOTAE/CAF" textFill="#d0c9c9">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="btnResumen" alignment="CENTER_LEFT" layoutX="10.0" layoutY="380.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
+                           <children>
+                              <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imagenes/resumen.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="resumen" stylesheets="@css/ostrich-sans.css" text="Resumen Mensual" textFill="#d0c9c9">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="btnCalculos" alignment="CENTER_LEFT" layoutX="10.0" layoutY="430.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
+                           <children>
+                              <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imagenes/plot.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="calculos" stylesheets="@css/ostrich-sans.css" text="Calculos" textFill="#d0c9c9">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="527.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#close_app" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
+                           <children>
+                              <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imagenes/closeRed.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="cerrar" stylesheets="@css/ostrich-sans.css" text="Cerrar" textFill="#d0c9c9">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="90.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
                   </VBox>
                </children>
-            </HBox>
+            </AnchorPane>
          </children>
-      </AnchorPane>
-      <AnchorPane layoutX="7.0" layoutY="221.0" prefHeight="731.0" prefWidth="300.0" style="-fx-background-color: #32404d;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <VBox layoutY="58.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <HBox fx:id="btnTablero" alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
-                     <children>
-                        <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imagenes/panelControl.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label fx:id="tablero" stylesheets="@css/ostrich-sans.css" text="Tablero de Control" textFill="#d0c9c9">
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <Label fx:id="main" stylesheets="@css/ostrich-sans.css" text="Main" textFill="#d0c9c9">
-                     <VBox.margin>
-                        <Insets left="10.0" top="20.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets bottom="10.0" />
-                     </padding>
-                  </Label>
-                  <HBox fx:id="btnSadi" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
-                     <children>
-                        <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imagenes/sadi.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label fx:id="sadi" stylesheets="@css/ostrich-sans.css" text="SADI" textFill="#d0c9c9">
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox fx:id="btnTransporte" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
-                     <children>
-                        <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imagenes/transmis.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="50.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label fx:id="transporte" stylesheets="@css/ostrich-sans.css" text="Transporte" textFill="#d0c9c9">
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                     <opaqueInsets>
-                        <Insets left="30.0" />
-                     </opaqueInsets>
-                  </HBox>
-                  <HBox fx:id="btnGeneracion" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
-                     <children>
-                        <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imagenes/gene.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="52.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label fx:id="generacion" stylesheets="@css/ostrich-sans.css" text="Generacion" textFill="#d0c9c9">
-                           <HBox.margin>
-                              <Insets left="13.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                     <opaqueInsets>
-                        <Insets left="30.0" />
-                     </opaqueInsets>
-                  </HBox>
-                  <HBox fx:id="btnDistribucion" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
-                     <children>
-                        <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imagenes/trafo.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="50.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label fx:id="distribucion" stylesheets="@css/ostrich-sans.css" text="Distribucion" textFill="#d0c9c9">
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                     <opaqueInsets>
-                        <Insets left="30.0" />
-                     </opaqueInsets>
-                  </HBox>
-                  <HBox fx:id="btnAgentes" alignment="CENTER_LEFT" layoutX="10.0" layoutY="80.0" maxHeight="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
-                     <children>
-                        <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imagenes/agentes.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="50.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label fx:id="agentes" stylesheets="@css/ostrich-sans.css" text="Agentes" textFill="#d0c9c9">
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                     <opaqueInsets>
-                        <Insets left="30.0" />
-                     </opaqueInsets>
-                  </HBox>
-                  <HBox fx:id="btnHistoricos" alignment="CENTER_LEFT" layoutX="10.0" layoutY="280.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
-                     <children>
-                        <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imagenes/chart.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label fx:id="historicos" stylesheets="@css/ostrich-sans.css" text="Historicos" textFill="#d0c9c9">
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox fx:id="btnFotaecaf" alignment="CENTER_LEFT" layoutX="10.0" layoutY="330.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
-                     <children>
-                        <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imagenes/work.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label fx:id="fotae" stylesheets="@css/ostrich-sans.css" text="FOTAE/CAF" textFill="#d0c9c9">
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox fx:id="btnResumen" alignment="CENTER_LEFT" layoutX="10.0" layoutY="380.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
-                     <children>
-                        <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imagenes/resumen.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label fx:id="resumen" stylesheets="@css/ostrich-sans.css" text="Resumen Mensual" textFill="#d0c9c9">
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox fx:id="btnCalculos" alignment="CENTER_LEFT" layoutX="10.0" layoutY="430.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#mouseHandle" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
-                     <children>
-                        <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imagenes/plot.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label fx:id="calculos" stylesheets="@css/ostrich-sans.css" text="Calculos" textFill="#d0c9c9">
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="527.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#close_app" prefHeight="50.0" styleClass="sidebar-btn" stylesheets="@css/stile.css">
-                     <children>
-                        <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imagenes/closeRed.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label fx:id="cerrar" stylesheets="@css/ostrich-sans.css" text="Cerrar" textFill="#d0c9c9">
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets top="90.0" />
-                     </VBox.margin>
-                  </HBox>
-               </children>
-               <padding>
-                  <Insets top="20.0" />
-               </padding>
-            </VBox>
-         </children>
-      </AnchorPane>
+      </VBox>
    </children>
 </AnchorPane>

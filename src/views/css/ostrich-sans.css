@@ -359,6 +359,10 @@
 #txtUsuario{
     -fx-font-color:#d0c9c9;
 }
+#lbPuesto{
+    -fx-font-family:'Raleway';
+    -fx-font-size:12;
+}
 #nombre{
     -fx-font-family:'Raleway';
     -font-weight: normal;

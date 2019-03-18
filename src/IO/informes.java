@@ -12,6 +12,7 @@ import java.util.ArrayList;
  *
  * @author User
  */
+
 public class informes implements Serializable{
     public int numInforme;  
     public String fechaInforme,medidasCorrectivas;
