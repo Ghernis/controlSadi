@@ -10,6 +10,8 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import IO.obra;
+import IO.obras;
+import IO.sqlPostgres;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import java.net.URL;
@@ -107,7 +109,7 @@ public class FotaecafController implements Initializable {
     private JFXButton btnAgregar;
     private String[] listaObras;
     private String obraSel="";
-    private HashMap<String,obra> obras;
+    private HashMap<String,obras> listObras;
     private HashMap<String,ArrayList> comentarios;
     @FXML
     private JFXListView<String> listComentarios;
@@ -120,11 +122,13 @@ public class FotaecafController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         pFotae=pnFotae;
-        escribirBinario es = new escribirBinario("bd.ext");
-        obras = es.leerBinPCObras();
-        listaObras = new String[obras.size()];
+//        escribirBinario es = new escribirBinario("bd.ext");
+//        listObras = es.leerBinPCObras();
+        getObras();
+        
+        listaObras = new String[listObras.size()];
         ArrayList listaO = new ArrayList();
-        Iterator it = obras.entrySet().iterator();
+        Iterator it = listObras.entrySet().iterator();
         int cont=0;
         while(it.hasNext()){
             Map.Entry entry= (Map.Entry)it.next();
@@ -144,17 +148,32 @@ public class FotaecafController implements Initializable {
         desplegableObras.setValue(obraSel);
         
     }    
+    public void getObras(){
+        sqlPostgres pos = new sqlPostgres();
+        pos.connect();
+        listObras = pos.queryGetObras("select * from fotae;");
+    }
     public void cargaObra(String o){
         areaComentarios.clear();
-        obra aux = obras.get(o);
-        txtTitulo.setText(aux.obra+" - "+aux.nombreObra);
-        lbRegion.setText(aux.region);
-        lbComitente.setText(aux.comitente);
-        lbProvincia.setText(aux.provincia);
-        lbActa.setText(aux.actaInicio);
-        lbAdjudicatario.setText(aux.adjudicatario);
-        lbHabilitacion.setText(aux.habilitacionComercial);
-        
+        obras aux = listObras.get(o);
+        txtTitulo.setText(aux.getObra()+" - "+aux.getNombreObra());
+        lbRegion.setText(aux.getRegion());
+        lbComitente.setText(aux.getComitente());
+        lbProvincia.setText(aux.getProvincia());
+        lbActa.setText(aux.getActaInicio());
+        lbAdjudicatario.setText(aux.getAdjudicatario());
+        lbHabilitacion.setText(aux.getHabilitacionComercial());
+        lbPlazo.setText(aux.getPlazoContractual()+"");
+        lbFechaInicio.setText(aux.getFechaInicio());
+        lbAsign17.setText(aux.getAsign17()+"");
+        lbAsign18.setText(aux.getAsign18()+"");
+        lbAsign19.setText(aux.getAsign19()+"");
+        lbFechaFirma.setText(aux.getFechaFirma());
+        lbFechaFin.setText(aux.getFechaFin());
+        lbMontoD.setText(aux.getMontoD()+"");
+        lbMontoP.setText(aux.getMontoP()+"");
+        lbMontoT.setText(aux.getMontoT()+"");
+        txtDescripcion.setText(aux.getDescripcion());
         listComentarios.getItems().clear();
         
         if(comentarios.containsKey(obraSel)){
