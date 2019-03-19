@@ -6,6 +6,7 @@
 package controladores;
 
 import IO.escribirBinario;
+import IO.informes;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
@@ -14,24 +15,40 @@ import IO.obras;
 import IO.sqlPostgres;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXTreeTableColumn;
+import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import cuadros.tablaInformes;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.ResourceBundle;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableColumn;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -114,7 +131,18 @@ public class FotaecafController implements Initializable {
     @FXML
     private JFXListView<String> listComentarios;
     @FXML
+    private JFXListView<String> listCorrectivas;
+    @FXML
     private JFXComboBox<String> desplegableObras;
+    @FXML
+    private JFXTreeTableView<tablaInformes> tvInformes;
+    
+    final CategoryAxis xAxis = new CategoryAxis();
+    final NumberAxis yAxis = new NumberAxis();
+    @FXML
+    private LineChart<String, Number> chartAvance = new LineChart<String,Number>(xAxis,yAxis);
+    @FXML
+    private LineChart<String, Number> chartPresu = new LineChart<String,Number>(xAxis,yAxis);
     /**
      * Initializes the controller class.
      */
@@ -183,6 +211,99 @@ public class FotaecafController implements Initializable {
                 listComentarios.getItems().add(comen);
             }
         }
+        cargaInformes(aux);
+        
+       
+        
+    }
+    public void cargaInformes(obras o){
+        
+        
+        //---------------------inicializacion graficos----------
+        chartAvance.getData().clear();
+        
+        xAxis.setLabel("Fecha de informe");
+        chartAvance.setTitle(o.getObra()+" - "+o.getNombreObra());
+        XYChart.Series series = new XYChart.Series();
+        series.setName("Avance de Obra[%]");
+        //-------------------------------
+        Collection<String> medidas = new ArrayList();
+        JFXTreeTableColumn<tablaInformes, String> fecha = new JFXTreeTableColumn<>("fecha");
+        fecha.setPrefWidth(150);
+        fecha.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<tablaInformes, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<tablaInformes, String> param) {
+                return param.getValue().getValue().fecha;
+            }
+        });
+        
+        JFXTreeTableColumn<tablaInformes, String> presuEj = new JFXTreeTableColumn<>("presuEj");
+        presuEj.setPrefWidth(150);
+        presuEj.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<tablaInformes, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<tablaInformes, String> param) {
+                return param.getValue().getValue().presuEj;
+            }
+        });
+        
+        JFXTreeTableColumn<tablaInformes, String> avance = new JFXTreeTableColumn<>("avance");
+        avance.setPrefWidth(150);
+        avance.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<tablaInformes, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<tablaInformes, String> param) {
+                return param.getValue().getValue().avance;
+            }
+        });
+        
+        JFXTreeTableColumn<tablaInformes, String> presuAnualPe = new JFXTreeTableColumn<>("presuAnualPe");
+        presuAnualPe.setPrefWidth(150);
+        presuAnualPe.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<tablaInformes, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<tablaInformes, String> param) {
+                return param.getValue().getValue().presuAnualPe;
+            }
+        });
+        
+        JFXTreeTableColumn<tablaInformes, String> presuAnualPor = new JFXTreeTableColumn<>("presuAnualPor");
+        presuAnualPor.setPrefWidth(150);
+        presuAnualPor.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<tablaInformes, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<tablaInformes, String> param) {
+                return param.getValue().getValue().presuAnualPor;
+            }
+        });
+        
+        JFXTreeTableColumn<tablaInformes, String> numInfo = new JFXTreeTableColumn<>("numInfo");
+        numInfo.setPrefWidth(150);
+        numInfo.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<tablaInformes, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<tablaInformes, String> param) {
+                return param.getValue().getValue().numInfo;
+            }
+        });
+        
+        ObservableList<tablaInformes> informes = FXCollections.observableArrayList();
+        ArrayList<informes> oInf = o.getInformesM();
+        Iterator it = oInf.iterator();
+        while(it.hasNext()){
+            
+            informes aux = (informes)it.next();
+            informes.add(new tablaInformes(aux.fechaInforme,aux.presupuestoEj+"",aux.avanceFisico+"",aux.presupuestoAnualEjPe+"",aux.presupuestoAnualEjPor+"",aux.numInforme+""));
+            //-----------------medidas correctivas---------
+            medidas.add(aux.fechaInforme+" - "+aux.medidasCorrectivas);
+            //-----------------graficos--------
+            series.getData().add(new XYChart.Data(aux.fechaInforme,aux.avanceFisico*100));
+        }
+        final TreeItem<tablaInformes> root = new RecursiveTreeItem<tablaInformes>(informes, RecursiveTreeObject::getChildren);
+        tvInformes.getColumns().setAll(fecha, presuEj, avance,presuAnualPe,presuAnualPor,numInfo);
+        tvInformes.setRoot(root);
+        tvInformes.setShowRoot(false);
+        
+        
+        listCorrectivas.getItems().addAll(medidas);
+        //-------------------cargar graficos----------------------
+
+        chartAvance.getData().add(series);
         
     }
 
@@ -199,8 +320,7 @@ public class FotaecafController implements Initializable {
            ArrayList<String> a = new ArrayList();
            a.add(comentario);
            comentarios.put(obraSel, a);
-       }
-               
+       }      
         listComentarios.getItems().add(comentario);
         escribirBinario es = new escribirBinario("coments.ext");
         es.escribirComentario(comentarios);

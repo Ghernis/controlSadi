@@ -364,3 +364,7 @@
     -fx-font-size:20;
 }
 
+#tvInformes .text{
+    -fx-text-fill:black;
+    -fx-fill:black;
+}

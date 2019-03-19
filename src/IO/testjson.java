@@ -27,6 +27,7 @@ public class testjson {
         HashMap<String,obras> Obras = new HashMap<String,obras>();
         Iterator it = obr.entrySet().iterator();
         String valTest ="";
+        String ob="";
         while(it.hasNext()){
             Map.Entry<String,obra> aux = (Map.Entry<String,obra>)it.next();
             obra oAux = aux.getValue();
@@ -55,13 +56,17 @@ public class testjson {
             nueva.setInformesM(oAux.informesM);
             
 ////            System.out.println(nueva.toString());
+            if(aux.getKey().contains("20")){
+               ob = aux.getKey();
+            }
             Obras.put(aux.getKey(), nueva);
+            
         }
-        makeJson(Obras.get(valTest));
+        makeJson(Obras.get(ob));
         sqlPostgres post = new sqlPostgres();
         post.connect();
 //        post.sqlStatement("select * from fotae;");
-//        post.sqlInsert(valTest, Obras.get(valTest));
+        post.sqlInsert(ob, Obras.get(ob));
         post.querySql("select * from fotae");
         post.disconect();
         

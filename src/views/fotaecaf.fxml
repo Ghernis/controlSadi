@@ -23,7 +23,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="pnFotae" prefHeight="900.0" prefWidth="1400.0" style="-fx-background-color: #848c94;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.FotaecafController">
+<AnchorPane id="AnchorPane" fx:id="pnFotae" prefHeight="900.0" prefWidth="1400.0" style="-fx-background-color: #848c94;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.FotaecafController">
    <children>
       <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="155.0" prefWidth="1400.0" style="-fx-background-color: #641945;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -334,14 +334,14 @@
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="300.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <JFXTreeTableView prefWidth="500.0" HBox.hgrow="ALWAYS" />
+                                    <JFXTreeTableView fx:id="tvInformes" prefWidth="500.0" stylesheets="@css/tablas.css" HBox.hgrow="ALWAYS" />
                                     <JFXTabPane HBox.hgrow="ALWAYS">
                                        <tabs>
                                           <Tab text="Avance de Obra[%]">
                                             <content>
                                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                    <children>
-                                                      <LineChart AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <LineChart fx:id="chartAvance" style="-fx-background-color: #848c94;" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                         <xAxis>
                                                           <CategoryAxis side="BOTTOM" />
                                                         </xAxis>
@@ -357,7 +357,7 @@
                                             <content>
                                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                    <children>
-                                                      <LineChart AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <LineChart fx:id="chartPresu" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                         <xAxis>
                                                           <CategoryAxis side="BOTTOM" />
                                                         </xAxis>
@@ -395,7 +395,7 @@
                                     <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                                        <children>
                                           <Label text="Medidas Correctivas:" />
-                                          <JFXListView />
+                                          <JFXListView fx:id="listCorrectivas" style="-fx-background-color: #848c94;" stylesheets="@css/stile.css" />
                                        </children>
                                     </VBox>
                                     <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">

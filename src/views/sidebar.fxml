@@ -33,7 +33,7 @@
                                  </font>
                               </Label>
                               <Label fx:id="apellido" opacity="0.88" text="Gomez" textFill="#d0c9c9" />
-                              <Label fx:id="lbPuesto" stylesheets="@css/ostrich-sans.css" text="Developer" textFill="#d0c9c9" />
+                              <Label fx:id="lbPuesto" stylesheets="@css/ostrich-sans.css" text="User" textFill="#d0c9c9" />
                            </children>
                            <HBox.margin>
                               <Insets left="10.0" />
