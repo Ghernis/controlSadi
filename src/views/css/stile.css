@@ -20,6 +20,15 @@
     -fx-text-fill:black;
     -fx-background-color: #83466a;
 }
+#listCorrectivas .list-cell:even{
+    -fx-text-fill:black;
+    -fx-background-color: #848c94;
+}
+
+#listCorrectivas .list-cell:odd{
+    -fx-text-fill:black;
+    -fx-background-color: #83466a;
+}
 .jfx-combo-box .text {
 	
 	/*-fx-text-fill: white;*/
